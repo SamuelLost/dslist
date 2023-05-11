@@ -1,6 +1,7 @@
 package com.devsuperior.backend.dto;
 
 import com.devsuperior.backend.entities.Game;
+import com.devsuperior.backend.projections.GameMinProjection;
 
 public class GameMinDTO {
 
@@ -9,6 +10,7 @@ public class GameMinDTO {
 	private Integer year;
 	private String imgUrl;
 	private String shortDescription;
+	private Integer position; // only for search by list
 	
 	public GameMinDTO(Game entity) {
 		id = entity.getId();
@@ -16,6 +18,15 @@ public class GameMinDTO {
 		year = entity.getYear();
 		imgUrl = entity.getImgUrl();
 		shortDescription = entity.getShortDescription();
+	}
+
+	public GameMinDTO(GameMinProjection projection) {
+		id = projection.getId();
+		title = projection.getTitle();
+		year = projection.getYear();
+		imgUrl = projection.getImgUrl();
+		shortDescription = projection.getShortDescription();
+		position = projection.getPosition();
 	}
 
 	public Long getId() {
@@ -36,5 +47,9 @@ public class GameMinDTO {
 
 	public String getShortDescription() {
 		return shortDescription;
+	}
+
+	public Integer getPosition() {
+		return position;
 	}
 }
