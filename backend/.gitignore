@@ -34,3 +34,4 @@ build/
 
 ## Variáveis de Ambiente Docker##
 keys.sh
+.data/
